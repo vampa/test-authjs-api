@@ -10,5 +10,5 @@ export enum Route {
 }
 
 export enum APIRoute {
-  Authed = "/api/1/authed",
+  Authed = "/api/authed",
 }

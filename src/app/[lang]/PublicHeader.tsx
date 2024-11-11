@@ -4,11 +4,9 @@ import Link from "next/link";
 import { Session } from "next-auth";
 import { signIn, signOut } from "next-auth/react";
 
-import { Route, PublicRoute } from "@/core/enums/routes";
+import { Route } from "@/core/enums/routes";
 
 export default function PublicHeader({ session }: { session: Session | null }) {
-  const homeUrl = session ? Route.Dashboard : PublicRoute.Home;
-
   const right = (
     <div className="header-right">
       {session ? (

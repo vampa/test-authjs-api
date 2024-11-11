@@ -2,8 +2,8 @@ import "@/lib/styles/globals.css";
 
 import type { Metadata } from "next";
 
+import { Locale, i18n } from "../../../i18n.config";
 import Providers from "./providers";
-import { Locale, i18n } from "../../i18n.config";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,6 +23,7 @@ interface RootLayoutProps {
 
 export default async function RootLayout(props: RootLayoutProps) {
   const params = await props.params;
+
   const { children } = props;
 
   return (

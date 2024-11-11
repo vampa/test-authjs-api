@@ -60,6 +60,7 @@ export default function middleware(req: NextRequest) {
   if (isPublicPage) {
     return intlMiddleware(req); // Apply internationalization for public pages
   } else {
+    // eslint-disable-next-line
     return (authMiddleware as any)(req); // Apply authentication logic for non-public pages
   }
 }

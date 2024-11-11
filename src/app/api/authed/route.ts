@@ -1,13 +1,13 @@
 import { auth } from "@/auth";
 
-export const GET = auth(async function GET(req) {
+export async function GET() {
   const session = await auth();
 
-  if (req.auth) {
-    console.log("API TEST success => session =>", req.auth);
-    return Response.json(req.auth);
+  if (session) {
+    console.log("API TEST success => session =>", session);
+    return Response.json(session);
   } else {
-    console.log('API TEST unauthorized "session" value =>', req, session);
+    console.log('API TEST unauthorized "session" value =>', session);
     return Response.json({ message: "Unauthorized" }, { status: 401 });
   }
-});
+}

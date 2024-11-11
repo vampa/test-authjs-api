@@ -1,14 +1,18 @@
 import { auth } from "@/auth";
 import { getDictionary } from "@/app/dictionaries";
-import PublicHeader from "./PublicHeader";
 
+import PublicHeader from "./PublicHeader";
 import { Locale } from "../../../i18n.config";
 
-export default async function Home({
-  params: { lang },
-}: {
-  params: { lang: Locale };
-}) {
+interface Params {
+  params: Promise<{
+    lang: Locale;
+  }>;
+}
+
+export default async function Home({ params }: Params) {
+  const { lang } = await params;
+
   const session = await auth();
   const dict = await getDictionary(lang);
 
